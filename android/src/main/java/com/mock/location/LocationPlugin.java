@@ -10,6 +10,12 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.util.Log;
+// areThereMockPermissionApps
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.*;
+import android.content.pm.ApplicationInfo;
+import java.util.List;
+import android.content.pm.PackageInfo;
 
 
 
@@ -33,6 +39,9 @@ public class LocationPlugin extends Plugin {
         }catch (Exception e){
             Log.e("error","error getting location: "+e);
         }
+        if(!isMock){           
+            isMock =areThereMockPermissionApps(getContext());
+        }
         ret.put("value", isMock);
         call.resolve(ret);
     }
@@ -48,5 +57,39 @@ public class LocationPlugin extends Plugin {
         //Context context
         // returns true if mock location enabled, false if not enabled.
         return !(Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ALLOW_MOCK_LOCATION).equals("0"));
+    }
+
+    public static boolean areThereMockPermissionApps(Context context) {
+        int count = 0;
+
+        PackageManager pm = context.getPackageManager();
+        List<ApplicationInfo> packages =
+                pm.getInstalledApplications(PackageManager.GET_META_DATA);
+
+        for (ApplicationInfo applicationInfo : packages) {
+            try {
+                PackageInfo packageInfo = pm.getPackageInfo(applicationInfo.packageName,
+                        PackageManager.GET_PERMISSIONS);
+
+                // Get Permissions
+                String[] requestedPermissions = packageInfo.requestedPermissions;
+
+                if (requestedPermissions != null) {
+                    for (int i = 0; i < requestedPermissions.length; i++) {
+                        if (requestedPermissions[i]
+                                .equals("android.permission.ACCESS_MOCK_LOCATION")
+                                && !applicationInfo.packageName.equals(context.getPackageName())) {
+                            count++;
+                        }
+                    }
+                }
+            } catch (NameNotFoundException e) {
+                Log.e("Got exception " , e.getMessage());
+            }
+        }
+
+        if (count > 0)
+            return true;
+        return false;
     }
 }
