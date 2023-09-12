@@ -1,4 +1,5 @@
 export interface LocationPlugin {
   isMocked(): Promise<boolean>;
-  isMockSettingsON(): Promise<boolean>;
+  isLastLocationMocked(): Promise<boolean>;
+  installedMockPermissionApps(): Promise<boolean>;
 }

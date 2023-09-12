@@ -6,7 +6,10 @@ export class LocationWeb extends WebPlugin implements LocationPlugin {
   async isMocked(): Promise<boolean> {
     return false;
   }
-  async isMockSettingsON(): Promise<boolean> {
+  async isLastLocationMocked(): Promise<boolean> {
+    return false;
+  }
+  async installedMockPermissionApps(): Promise<boolean> {
     return false;
   }
 }

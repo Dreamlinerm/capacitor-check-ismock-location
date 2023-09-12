@@ -9,7 +9,10 @@ var capacitorExample = (function (exports, core) {
         async isMocked() {
             return false;
         }
-        async isMockSettingsON() {
+        async isLastLocationMocked() {
+            return false;
+        }
+        async installedMockPermissionApps() {
             return false;
         }
     }
