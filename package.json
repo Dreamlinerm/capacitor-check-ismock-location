@@ -1,7 +1,7 @@
 {
   "name": "capacitor-mock-location",
   "version": "0.0.1",
-  "description": "The Capacitor plugin finds out if a location is spoofed/mock/false.",
+  "description": "Capacitor plugin for Android which checks if location is spoofed/mock/false or MockProvider is enabled.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
