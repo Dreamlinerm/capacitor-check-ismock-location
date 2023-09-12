@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<user>/<repo>.git"
+    "url": "git+https://github.com/Dreamlinerm/capacitor-mock-location"
   },
   "bugs": {
-    "url": "https://github.com/<user>/<repo>/issues"
+    "url": "https://github.com/Dreamlinerm/capacitor-mock-location/issues"
   },
   "keywords": [
     "capacitor",
