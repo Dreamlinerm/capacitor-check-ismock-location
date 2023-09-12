@@ -12,17 +12,20 @@ npx cap sync
 ```
 ## Example
     
-    ```typescript
-    import { Location } from "capacitor-mock-location";
+```javascript
 
-    const isMocked = await Location.isMocked();
-    alert('isMocked: ' + JSON.stringify(isMocked));
-    const isLastLocationMocked = await Location.isLastLocationMocked();
-    alert('isLastLocationMocked: ' + JSON.stringify(isLastLocationMocked));
-    const installedMockPermissionApps = await Location.installedMockPermissionApps();
-    alert('installedMockPermissionApps: ' + JSON.stringify(installedMockPermissionApps));
+import { Location } from "capacitor-mock-location";
+
+...
+
+const isMocked = await Location.isMocked();
+alert('isMocked: ' + JSON.stringify(isMocked));
+const isLastLocationMocked = await Location.isLastLocationMocked();
+alert('isLastLocationMocked: ' + JSON.stringify(isLastLocationMocked));
+const installedMockPermissionApps = await Location.installedMockPermissionApps();
+alert('installedMockPermissionApps: ' + JSON.stringify(installedMockPermissionApps));
     
-    ```
+ ```
 
 Add this to your app Manifest.xml
 ```html
