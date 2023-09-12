@@ -34,9 +34,59 @@ or,
 ```
 ## API
 
-<docgen-index></docgen-index>
+<docgen-index>
+
+* [`isMocked()`](#ismocked)
+* [`isLastLocationMocked()`](#islastlocationmocked)
+* [`installedMockPermissionApps()`](#installedmockpermissionapps)
+
+</docgen-index>
 
 <docgen-api>
-<!-- run docgen to generate docs from the source -->
-<!-- More info: https://github.com/ionic-team/capacitor-docgen -->
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### isMocked()
+
+```typescript
+isMocked() => Promise<boolean>
+```
+
+Is the last location mocked or MockProvider is enabled.
+
+**Returns:** <code>Promise&lt;boolean&gt;</code>
+
+**Since:** 1.0.0
+
+--------------------
+
+
+### isLastLocationMocked()
+
+```typescript
+isLastLocationMocked() => Promise<boolean>
+```
+
+Is the last location mocked.
+
+**Returns:** <code>Promise&lt;boolean&gt;</code>
+
+**Since:** 1.0.0
+
+--------------------
+
+
+### installedMockPermissionApps()
+
+```typescript
+installedMockPermissionApps() => Promise<boolean>
+```
+
+Is MockProvider enabled.
+
+**Returns:** <code>Promise&lt;boolean&gt;</code>
+
+**Since:** 1.0.0
+
+--------------------
+
 </docgen-api>

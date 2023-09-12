@@ -1,5 +1,58 @@
 {
-  "api": null,
+  "api": {
+    "name": "LocationPlugin",
+    "slug": "locationplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "isMocked",
+        "signature": "() => Promise<boolean>",
+        "parameters": [],
+        "returns": "Promise<boolean>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Is the last location mocked or MockProvider is enabled.",
+        "complexTypes": [],
+        "slug": "ismocked"
+      },
+      {
+        "name": "isLastLocationMocked",
+        "signature": "() => Promise<boolean>",
+        "parameters": [],
+        "returns": "Promise<boolean>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Is the last location mocked.",
+        "complexTypes": [],
+        "slug": "islastlocationmocked"
+      },
+      {
+        "name": "installedMockPermissionApps",
+        "signature": "() => Promise<boolean>",
+        "parameters": [],
+        "returns": "Promise<boolean>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Is MockProvider enabled.",
+        "complexTypes": [],
+        "slug": "installedmockpermissionapps"
+      }
+    ],
+    "properties": []
+  },
   "interfaces": [],
   "enums": [],
   "typeAliases": [],
