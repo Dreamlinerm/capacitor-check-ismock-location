@@ -1,7 +1,11 @@
 import { WebPlugin } from '@capacitor/core';
 import type { LocationPlugin } from './definitions';
-export declare class LocationWeb extends WebPlugin implements LocationPlugin {
-    isMocked(): Promise<boolean>;
-    isLastLocationMocked(): Promise<boolean>;
-    installedMockPermissionApps(): Promise<boolean>;
+interface ObjectWithBooleanValue {
+    value: boolean;
 }
+export declare class LocationWeb extends WebPlugin implements LocationPlugin {
+    isMocked(): Promise<ObjectWithBooleanValue>;
+    isLastLocationMocked(): Promise<ObjectWithBooleanValue>;
+    installedMockPermissionApps(): Promise<ObjectWithBooleanValue>;
+}
+export {};

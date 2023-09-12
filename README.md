@@ -41,15 +41,10 @@ or,
 
 <docgen-index>
 
-- [capacitor-mock-location](#capacitor-mock-location)
-  - [Install](#install)
-  - [Example](#example)
-  - [API](#api)
-    - [isMocked()](#ismocked)
-    - [isLastLocationMocked()](#islastlocationmocked)
-    - [installedMockPermissionApps()](#installedmockpermissionapps)
-    - [Interfaces](#interfaces)
-      - [ObjectWithBooleanValue](#objectwithbooleanvalue)
+* [`isMocked()`](#ismocked)
+* [`isLastLocationMocked()`](#islastlocationmocked)
+* [`installedMockPermissionApps()`](#installedmockpermissionapps)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -66,7 +61,7 @@ Is the last location mocked or MockProvider is enabled. Returns false on error.
 
 **Returns:** <code>Promise&lt;<a href="#objectwithbooleanvalue">ObjectWithBooleanValue</a>&gt;</code>
 
-**Since:** 1.0.0
+**Since:** 0.0.1
 
 --------------------
 
@@ -81,7 +76,7 @@ Is the last location mocked. Returns false on error.
 
 **Returns:** <code>Promise&lt;<a href="#objectwithbooleanvalue">ObjectWithBooleanValue</a>&gt;</code>
 
-**Since:** 1.0.0
+**Since:** 0.0.1
 
 --------------------
 
@@ -96,7 +91,7 @@ Is MockProvider enabled. Returns false on error.
 
 **Returns:** <code>Promise&lt;<a href="#objectwithbooleanvalue">ObjectWithBooleanValue</a>&gt;</code>
 
-**Since:** 1.0.0
+**Since:** 0.0.1
 
 --------------------
 

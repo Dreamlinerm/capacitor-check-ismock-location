@@ -1,13 +1,13 @@
 import { WebPlugin } from '@capacitor/core';
 export class LocationWeb extends WebPlugin {
     async isMocked() {
-        return false;
+        return { value: false };
     }
     async isLastLocationMocked() {
-        return false;
+        return { value: false };
     }
     async installedMockPermissionApps() {
-        return false;
+        return { value: false };
     }
 }
 //# sourceMappingURL=web.js.map
