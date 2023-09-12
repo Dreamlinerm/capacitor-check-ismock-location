@@ -39,9 +39,6 @@ public class LocationPlugin extends Plugin {
     private boolean isMockSettingsONLocal(Context context) {
         //Context context
         // returns true if mock location enabled, false if not enabled.
-        if (Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ALLOW_MOCK_LOCATION).equals("0"))
-            return false;
-        else
-            return true;
+        return !(Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ALLOW_MOCK_LOCATION).equals("0"));
     }
 }
