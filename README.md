@@ -1,4 +1,4 @@
-# capacitor-mock-location
+# capacitor-check-ismock-location
 
 The Capacitor plugin finds out if a location is spoofed/mock/fake.
 
@@ -41,7 +41,7 @@ or,
 
 <docgen-index>
 
-- [capacitor-mock-location](#capacitor-mock-location)
+- [capacitor-check-ismock-location](#capacitor-check-ismock-location)
   - [Install](#install)
   - [Example](#example)
   - [API](#api)
