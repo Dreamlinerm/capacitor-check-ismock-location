@@ -27,27 +27,19 @@ public class LocationPlugin extends Plugin {
         JSObject ret = new JSObject();
         boolean isMock = false;
         try {
-            if (android.os.Build.VERSION.SDK_INT >= 31) {
-                LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
-                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                if(location!= null) {
-                    isMock = location.isMock();
-                }
-            }
-            else if (android.os.Build.VERSION.SDK_INT >= 18) {
-                LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
-                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                if(location!= null) {
-                    isMock = location.isFromMockProvider();
-                }
-            } else {
+            isMock = isMockLocation(getContext());
+            if(android.os.Build.VERSION.SDK_INT < 18) {
                 isMock = isMockSettingsONLocal(getContext());
+            }
+            if(!isMock){           
+                isMock = areThereMockPermissionApps(getContext());
+                if(isMock){
+                    removeGpsFaker(getContext());
+                    isMock = areThereMockPermissionApps(getContext());
+                }
             }
         }catch (Exception e){
             Log.e("error","error getting location: "+e);
-        }
-        if(!isMock){           
-            isMock = areThereMockPermissionApps(getContext());
         }
         ret.put("value", isMock);
         call.resolve(ret);
@@ -58,6 +50,38 @@ public class LocationPlugin extends Plugin {
         JSObject ret = new JSObject();
         ret.put("value", isMockSettingsONLocal(getContext()));
         call.resolve(ret);
+    }
+
+    public static void removeGpsFaker(Context context) {
+        LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+        try {
+            Log.d("error" ,"Removing Test providers");
+            lm.removeTestProvider(LocationManager.GPS_PROVIDER);
+        } catch (IllegalArgumentException error) {
+            Log.d("error","Got exception in removing test  provider");
+        }
+    }
+
+    public static boolean isMockLocation(Context context) {
+        boolean isMock = false;
+        try {
+            if (android.os.Build.VERSION.SDK_INT >= 31) {
+                LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if(location!= null) {
+                    isMock = location.isMock();
+                }
+            } else if (android.os.Build.VERSION.SDK_INT >= 18) {
+                LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if(location!= null) {
+                    isMock = location.isFromMockProvider();
+                }
+            }
+        }catch (Exception e){
+            Log.e("error","error getting location: "+e);
+        }
+        return isMock;
     }
 
     private boolean isMockSettingsONLocal(Context context) {
