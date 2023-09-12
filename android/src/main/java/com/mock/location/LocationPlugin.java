@@ -32,7 +32,7 @@ public class LocationPlugin extends Plugin {
                 Log.i("isMockLocation", "VERSION.SDK_INT < 18");
                 isMock = isMockSettingsONLocal(getContext());
             }
-            if(!isMock){           
+            if(!isMock){
                 isMock = areThereMockPermissionApps(getContext());
                 // if(isMock){
                 //     removeGpsFaker(getContext());
@@ -129,9 +129,8 @@ public class LocationPlugin extends Plugin {
         }
 
         if (count > 0){
-            return true;
             Log.i("isMockLocation", "isMocked=true: func areThereMockPermissionApps()");
-                   
+            return true;
         }
         return false;
     }
