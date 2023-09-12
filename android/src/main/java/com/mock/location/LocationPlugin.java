@@ -72,6 +72,9 @@ public class LocationPlugin extends Plugin {
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 if(location!= null) {
                     isMock = location.isMock();
+                    if(isMock){
+                        Log.i("isMockLocation", "isMocked=true: func isMock()");
+                    }
                 }
             } else if (android.os.Build.VERSION.SDK_INT >= 18) {
                 Log.i("isMockLocation", "VERSION.SDK_INT >= 18");
@@ -79,6 +82,9 @@ public class LocationPlugin extends Plugin {
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 if(location!= null) {
                     isMock = location.isFromMockProvider();
+                    if(isMock){
+                        Log.i("isMockLocation", "isMocked=true: func isFromMockProvider()");
+                    }
                 }
             }
         }catch (Exception e){
@@ -122,8 +128,11 @@ public class LocationPlugin extends Plugin {
             }
         }
 
-        if (count > 0)
+        if (count > 0){
             return true;
+            Log.i("isMockLocation", "isMocked=true: func areThereMockPermissionApps()");
+                   
+        }
         return false;
     }
 }
