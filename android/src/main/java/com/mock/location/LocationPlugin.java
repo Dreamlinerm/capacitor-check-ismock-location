@@ -11,7 +11,7 @@ import com.getcapacitor.JSObject;
 public class LocationPlugin extends Plugin {
 
     @PluginMethod()
-    public void isMock(PluginCall call) {
+    public void isMocked(PluginCall call) {
         JSObject ret = new JSObject();
         ret.put("value", false);
         call.resolve(ret);

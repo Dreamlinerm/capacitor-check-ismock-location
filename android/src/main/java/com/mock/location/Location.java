@@ -4,13 +4,13 @@ import android.util.Log;
 import com.getcapacitor.PluginCall;
 public class Location {
 
-    public String isMock() {
+    public String isMocked() {
         // Log.i("isMock");
-        return "isMock";
+        return "isMocked";
     }
 
     public String isMockSettingsON(PluginCall call) {
         // Log.i("isMockSettingsON");
-        return "isMock";
+        return "isMocked";
     }
 }
