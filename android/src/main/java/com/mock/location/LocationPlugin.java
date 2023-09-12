@@ -36,7 +36,7 @@ public class LocationPlugin extends Plugin {
                 // }
             }
         }catch (Exception e){
-            Log.e("isMockLocation","error getting location: "+e);
+            Log.e("isMockLocation","isMockLocation: "+e);
         }
         ret.put("value", isMock);
         call.resolve(ret);
@@ -45,32 +45,20 @@ public class LocationPlugin extends Plugin {
     @PluginMethod()
     public void isLastLocationMocked(PluginCall call) {
         JSObject ret = new JSObject();
-        boolean isMock = false;
-        try {
-            isMock = isMockLocation(getContext());
-        }catch (Exception e){
-            Log.e("isMockLocation","error getting location: "+e);
-        }
-        ret.put("value", isMock);
+        ret.put("value", isMockLocation(getContext()));
         call.resolve(ret);
     }
 
     @PluginMethod()
     public void installedMockPermissionApps(PluginCall call) {
         JSObject ret = new JSObject();
-        boolean isMock = false;
-        try {
-            isMock = areThereMockPermissionApps(getContext());
-        }catch (Exception e){
-            Log.e("isMockLocation","error getting location: "+e);
-        }
-        ret.put("value", isMock);
+        ret.put("value", areThereMockPermissionApps(getContext()));
         call.resolve(ret);
     }
 
     public static void removeGpsFaker(Context context) {
-        LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         try {
+            LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
             Log.d("isMockLocation" ,"Removing Test providers");
             lm.removeTestProvider(LocationManager.GPS_PROVIDER);
         } catch (IllegalArgumentException error) {
@@ -103,7 +91,7 @@ public class LocationPlugin extends Plugin {
                 }
             }
         }catch (Exception e){
-            Log.e("error","error getting location: "+e);
+            Log.e("error","isMockLocation: "+e);
         }
         return isMock;
     }
@@ -115,47 +103,52 @@ public class LocationPlugin extends Plugin {
     }
 
     public static boolean areThereMockPermissionApps(Context context) {
-        if(android.os.Build.VERSION.SDK_INT >= 18) {
-            int count = 0;
+        try {
+            if(android.os.Build.VERSION.SDK_INT >= 18) {
+                int count = 0;
 
-            PackageManager pm = context.getPackageManager();
-            List<ApplicationInfo> packages =
-                    pm.getInstalledApplications(PackageManager.GET_META_DATA);
+                PackageManager pm = context.getPackageManager();
+                List<ApplicationInfo> packages =
+                        pm.getInstalledApplications(PackageManager.GET_META_DATA);
 
-            for (ApplicationInfo applicationInfo : packages) {
-                try {
-                    PackageInfo packageInfo = pm.getPackageInfo(applicationInfo.packageName,
-                            PackageManager.GET_PERMISSIONS);
+                for (ApplicationInfo applicationInfo : packages) {
+                    try {
+                        PackageInfo packageInfo = pm.getPackageInfo(applicationInfo.packageName,
+                                PackageManager.GET_PERMISSIONS);
 
-                    // Get Permissions
-                    String[] requestedPermissions = packageInfo.requestedPermissions;
+                        // Get Permissions
+                        String[] requestedPermissions = packageInfo.requestedPermissions;
 
-                    if (requestedPermissions != null) {
-                        for (int i = 0; i < requestedPermissions.length; i++) {
-                            if (requestedPermissions[i]
-                                    .equals("android.permission.ACCESS_MOCK_LOCATION")
-                                    && !applicationInfo.packageName.equals(context.getPackageName())) {
-                                count++;
+                        if (requestedPermissions != null) {
+                            for (int i = 0; i < requestedPermissions.length; i++) {
+                                if (requestedPermissions[i]
+                                        .equals("android.permission.ACCESS_MOCK_LOCATION")
+                                        && !applicationInfo.packageName.equals(context.getPackageName())) {
+                                    count++;
+                                }
                             }
                         }
+                    } catch (NameNotFoundException e) {
+                        Log.e("Got exception ", e.getMessage());
                     }
-                } catch (NameNotFoundException e) {
-                    Log.e("Got exception ", e.getMessage());
                 }
-            }
 
-            if (count > 0) {
-                Log.i("isMockLocation", "isMocked=true: func areThereMockPermissionApps()");
-                return true;
+                if (count > 0) {
+                    Log.i("isMockLocation", "isMocked=true: func areThereMockPermissionApps()");
+                    return true;
+                }
+                return false;
+
             }
+            else {
+                Log.i("isMockLocation", "VERSION.SDK_INT < 18");
+                boolean isMock = isMockSettingsONLocal(context);
+                if(isMock) Log.i("isMockLocation", "isMocked=true: func isMockSettingsONLocal");
+                return isMock;
+            }
+        }catch (Exception e){
+            Log.e("error","isMockLocation: "+e);
             return false;
-
-        }
-        else {
-            Log.i("isMockLocation", "VERSION.SDK_INT < 18");
-            boolean isMock = isMockSettingsONLocal(context);
-            if(isMock) Log.i("isMockLocation", "isMocked=true: func isMockSettingsONLocal");
-            return isMock;
         }
     }
 }
