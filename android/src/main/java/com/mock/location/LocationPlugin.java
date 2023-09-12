@@ -25,7 +25,7 @@ public class LocationPlugin extends Plugin {
         }else {
             isMock = isMockSettingsONLocal(getContext());
         }
-        ret.put("value", false);
+        ret.put("value", isMock);
         call.resolve(ret);
     }
 
