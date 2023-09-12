@@ -1,6 +1,6 @@
 # capacitor-mock-location
 
-The Capacitor plugin finds out if a location is spoofed/mock/false.
+The Capacitor plugin finds out if a location is spoofed/mock/fake.
 
 Implemented the functions on https://stackoverflow.com/questions/6880232/disable-check-for-mock-location-prevent-gps-spoofing as a Capacitor plugin
 
