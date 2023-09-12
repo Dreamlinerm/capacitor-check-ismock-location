@@ -33,10 +33,10 @@ public class LocationPlugin extends Plugin {
             }
             if(!isMock){           
                 isMock = areThereMockPermissionApps(getContext());
-                if(isMock){
-                    removeGpsFaker(getContext());
-                    isMock = areThereMockPermissionApps(getContext());
-                }
+                // if(isMock){
+                //     removeGpsFaker(getContext());
+                //     isMock = areThereMockPermissionApps(getContext());
+                // }
             }
         }catch (Exception e){
             Log.e("error","error getting location: "+e);
