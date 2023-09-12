@@ -14,7 +14,7 @@ npx cap sync
     
 ```javascript
 
-import { Location } from "capacitor-mock-location";
+import { Location } from "capacitor-check-ismock-location";
 
 ...
 
@@ -41,10 +41,15 @@ or,
 
 <docgen-index>
 
-* [`isMocked()`](#ismocked)
-* [`isLastLocationMocked()`](#islastlocationmocked)
-* [`installedMockPermissionApps()`](#installedmockpermissionapps)
-* [Interfaces](#interfaces)
+- [capacitor-mock-location](#capacitor-mock-location)
+  - [Install](#install)
+  - [Example](#example)
+  - [API](#api)
+    - [isMocked()](#ismocked)
+    - [isLastLocationMocked()](#islastlocationmocked)
+    - [installedMockPermissionApps()](#installedmockpermissionapps)
+    - [Interfaces](#interfaces)
+      - [ObjectWithBooleanValue](#objectwithbooleanvalue)
 
 </docgen-index>
 
