@@ -7,7 +7,7 @@ Implemented the functions on https://stackoverflow.com/questions/6880232/disable
 ## Install
 
 ```bash
-npm install https://github.com/Dreamlinerm/capacitor-check-ismock-location.git
+npm install capacitor-check-ismock-location
 npx cap sync
 ```
 ## Example
@@ -41,10 +41,15 @@ or,
 
 <docgen-index>
 
-* [`isMocked()`](#ismocked)
-* [`isLastLocationMocked()`](#islastlocationmocked)
-* [`installedMockPermissionApps()`](#installedmockpermissionapps)
-* [Interfaces](#interfaces)
+- [capacitor-check-ismock-location](#capacitor-check-ismock-location)
+  - [Install](#install)
+  - [Example](#example)
+  - [API](#api)
+    - [isMocked()](#ismocked)
+    - [isLastLocationMocked()](#islastlocationmocked)
+    - [installedMockPermissionApps()](#installedmockpermissionapps)
+    - [Interfaces](#interfaces)
+      - [ObjectWithBooleanValue](#objectwithbooleanvalue)
 
 </docgen-index>
 
