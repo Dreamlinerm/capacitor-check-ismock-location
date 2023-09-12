@@ -1,11 +1,11 @@
 var capacitorExample = (function (exports, core) {
     'use strict';
 
-    const Location = core.registerPlugin('Example', {
-        web: () => Promise.resolve().then(function () { return web; }).then(m => new m.ExampleWeb()),
+    const Location = core.registerPlugin('Location', {
+        web: () => Promise.resolve().then(function () { return web; }).then(m => new m.LocationWeb()),
     });
 
-    class ExampleWeb extends core.WebPlugin {
+    class LocationWeb extends core.WebPlugin {
         async isMocked() {
             return false;
         }
@@ -16,7 +16,7 @@ var capacitorExample = (function (exports, core) {
 
     var web = /*#__PURE__*/Object.freeze({
         __proto__: null,
-        ExampleWeb: ExampleWeb
+        LocationWeb: LocationWeb
     });
 
     exports.Location = Location;

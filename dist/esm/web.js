@@ -1,5 +1,5 @@
 import { WebPlugin } from '@capacitor/core';
-export class ExampleWeb extends WebPlugin {
+export class LocationWeb extends WebPlugin {
     async isMocked() {
         return false;
     }
