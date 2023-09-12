@@ -29,6 +29,7 @@ public class LocationPlugin extends Plugin {
         try {
             isMock = isMockLocation(getContext());
             if(android.os.Build.VERSION.SDK_INT < 18) {
+                Log.i("isMockLocation", "VERSION.SDK_INT < 18");
                 isMock = isMockSettingsONLocal(getContext());
             }
             if(!isMock){           
@@ -39,7 +40,7 @@ public class LocationPlugin extends Plugin {
                 // }
             }
         }catch (Exception e){
-            Log.e("error","error getting location: "+e);
+            Log.e("isMockLocation","error getting location: "+e);
         }
         ret.put("value", isMock);
         call.resolve(ret);
@@ -55,10 +56,10 @@ public class LocationPlugin extends Plugin {
     public static void removeGpsFaker(Context context) {
         LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         try {
-            Log.d("error" ,"Removing Test providers");
+            Log.d("isMockLocation" ,"Removing Test providers");
             lm.removeTestProvider(LocationManager.GPS_PROVIDER);
         } catch (IllegalArgumentException error) {
-            Log.d("error","Got exception in removing test  provider");
+            Log.d("isMockLocation","Got exception in removing test  provider");
         }
     }
 
@@ -66,12 +67,14 @@ public class LocationPlugin extends Plugin {
         boolean isMock = false;
         try {
             if (android.os.Build.VERSION.SDK_INT >= 31) {
+                Log.i("isMockLocation", "VERSION.SDK_INT >= 31");
                 LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 if(location!= null) {
                     isMock = location.isMock();
                 }
             } else if (android.os.Build.VERSION.SDK_INT >= 18) {
+                Log.i("isMockLocation", "VERSION.SDK_INT >= 18");
                 LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 if(location!= null) {
