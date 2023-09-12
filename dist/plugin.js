@@ -1,4 +1,4 @@
-var capacitorExample = (function (exports, core) {
+var capacitorLocation = (function (exports, core) {
     'use strict';
 
     const Location = core.registerPlugin('Location', {

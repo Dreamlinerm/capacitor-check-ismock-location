@@ -5,9 +5,9 @@ import Capacitor
  * Please read the Capacitor iOS Plugin Development Guide
  * here: https://capacitorjs.com/docs/plugins/ios
  */
-@objc(ExamplePlugin)
-public class ExamplePlugin: CAPPlugin {
-    private let implementation = Example()
+@objc(LocationPlugin)
+public class LocationPlugin: CAPPlugin {
+    private let implementation = Location()
 
     @objc func echo(_ call: CAPPluginCall) {
         let value = call.getString("value") ?? ""
