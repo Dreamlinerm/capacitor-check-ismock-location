@@ -7,53 +7,81 @@
     "methods": [
       {
         "name": "isMocked",
-        "signature": "() => Promise<boolean>",
+        "signature": "() => Promise<ObjectWithBooleanValue>",
         "parameters": [],
-        "returns": "Promise<boolean>",
+        "returns": "Promise<ObjectWithBooleanValue>",
         "tags": [
           {
             "name": "since",
             "text": "1.0.0"
           }
         ],
-        "docs": "Is the last location mocked or MockProvider is enabled.",
-        "complexTypes": [],
+        "docs": "Is the last location mocked or MockProvider is enabled. Returns false on error.",
+        "complexTypes": [
+          "ObjectWithBooleanValue"
+        ],
         "slug": "ismocked"
       },
       {
         "name": "isLastLocationMocked",
-        "signature": "() => Promise<boolean>",
+        "signature": "() => Promise<ObjectWithBooleanValue>",
         "parameters": [],
-        "returns": "Promise<boolean>",
+        "returns": "Promise<ObjectWithBooleanValue>",
         "tags": [
           {
             "name": "since",
             "text": "1.0.0"
           }
         ],
-        "docs": "Is the last location mocked.",
-        "complexTypes": [],
+        "docs": "Is the last location mocked. Returns false on error.",
+        "complexTypes": [
+          "ObjectWithBooleanValue"
+        ],
         "slug": "islastlocationmocked"
       },
       {
         "name": "installedMockPermissionApps",
-        "signature": "() => Promise<boolean>",
+        "signature": "() => Promise<ObjectWithBooleanValue>",
         "parameters": [],
-        "returns": "Promise<boolean>",
+        "returns": "Promise<ObjectWithBooleanValue>",
         "tags": [
           {
             "name": "since",
             "text": "1.0.0"
           }
         ],
-        "docs": "Is MockProvider enabled.",
-        "complexTypes": [],
+        "docs": "Is MockProvider enabled. Returns false on error.",
+        "complexTypes": [
+          "ObjectWithBooleanValue"
+        ],
         "slug": "installedmockpermissionapps"
       }
     ],
     "properties": []
   },
-  "interfaces": [],
+  "interfaces": [
+    {
+      "name": "ObjectWithBooleanValue",
+      "slug": "objectwithbooleanvalue",
+      "docs": "Object with the value property that is a boolean. Returns false on error.",
+      "tags": [
+        {
+          "text": "1.0.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "value",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    }
+  ],
   "enums": [],
   "typeAliases": [],
   "pluginConfigs": []
