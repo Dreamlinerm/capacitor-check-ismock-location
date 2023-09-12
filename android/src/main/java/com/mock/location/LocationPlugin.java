@@ -9,6 +9,8 @@ import android.provider.Settings;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
+import android.util.Log;
+
 
 
 @CapacitorPlugin(name = "Location")
@@ -17,13 +19,19 @@ public class LocationPlugin extends Plugin {
     @PluginMethod()
     public void isMocked(PluginCall call) {
         JSObject ret = new JSObject();
-        LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
-        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         boolean isMock = false;
-        if (android.os.Build.VERSION.SDK_INT >= 18) {
-            isMock = location.isFromMockProvider();
-        }else {
-            isMock = isMockSettingsONLocal(getContext());
+        try {
+            if (android.os.Build.VERSION.SDK_INT >= 18) {
+                LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
+                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if(location!= null) {
+                    isMock = location.isFromMockProvider();
+                }
+            } else {
+                isMock = isMockSettingsONLocal(getContext());
+            }
+        }catch (Exception e){
+            Log.e("error","error getting location: "+e);
         }
         ret.put("value", isMock);
         call.resolve(ret);
