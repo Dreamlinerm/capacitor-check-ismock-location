@@ -7,7 +7,7 @@ Implemented the functions on https://stackoverflow.com/questions/6880232/disable
 ## Install
 
 ```bash
-npm install https://github.com/Dreamlinerm/capacitor-mock-location.git
+npm install https://github.com/Dreamlinerm/capacitor-check-ismock-location.git
 npx cap sync
 ```
 ## Example

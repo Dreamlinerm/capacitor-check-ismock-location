@@ -1,5 +1,5 @@
 {
-  "name": "capacitor-mock-location",
+  "name": "capacitor-check-ismock-location",
   "version": "0.0.1",
   "description": "Capacitor plugin for Android which checks if location is spoofed/mock/false or MockProvider is enabled.",
   "main": "dist/plugin.cjs.js",
@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dreamlinerm/capacitor-mock-location"
+    "url": "git+https://github.com/Dreamlinerm/capacitor-check-ismock-location"
   },
   "bugs": {
-    "url": "https://github.com/Dreamlinerm/capacitor-mock-location/issues"
+    "url": "https://github.com/Dreamlinerm/capacitor-check-ismock-location/issues"
   },
   "keywords": [
     "capacitor",
