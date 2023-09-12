@@ -2,6 +2,8 @@
 
 The Capacitor plugin finds out if a location is spoofed/mock/false.
 
+Implemented the functions on https://stackoverflow.com/questions/6880232/disable-check-for-mock-location-prevent-gps-spoofing as a Capacitor plugin
+
 ## Install
 
 ```bash
@@ -36,10 +38,15 @@ or,
 
 <docgen-index>
 
-* [`isMocked()`](#ismocked)
-* [`isLastLocationMocked()`](#islastlocationmocked)
-* [`installedMockPermissionApps()`](#installedmockpermissionapps)
-* [Interfaces](#interfaces)
+- [capacitor-mock-location](#capacitor-mock-location)
+  - [Install](#install)
+  - [Example](#example)
+  - [API](#api)
+    - [isMocked()](#ismocked)
+    - [isLastLocationMocked()](#islastlocationmocked)
+    - [installedMockPermissionApps()](#installedmockpermissionapps)
+    - [Interfaces](#interfaces)
+      - [ObjectWithBooleanValue](#objectwithbooleanvalue)
 
 </docgen-index>
 
