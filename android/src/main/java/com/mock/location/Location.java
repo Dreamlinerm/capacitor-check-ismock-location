@@ -9,8 +9,13 @@ public class Location {
         return "isMocked";
     }
 
-    public String isMockSettingsON(PluginCall call) {
+    public String isLastLocationMocked(PluginCall call) {
         // Log.i("isMockSettingsON");
         return "isMocked";
+    }
+
+    public String installedMockPermissionApps(PluginCall call) {
+        // Log.i("isMockSettingsON");
+        return "installedMockPermissionApps";
     }
 }

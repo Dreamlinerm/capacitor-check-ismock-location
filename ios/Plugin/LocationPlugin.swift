@@ -9,10 +9,13 @@ import Capacitor
 public class LocationPlugin: CAPPlugin {
     private let implementation = Location()
 
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
-        call.resolve([
-            "value": implementation.echo(value)
-        ])
+    @objc override func isMocked(_ call: CAPPluginCall) {
+        call.unimplemented("Not yet implemented on iOS.")
+    }
+    @objc override func isLastLocationMocked(_ call: CAPPluginCall) {
+        call.unimplemented("Not yet implemented on iOS.")
+    }
+    @objc override func installedMockPermissionApps(_ call: CAPPluginCall) {
+        call.unimplemented("Not yet implemented on iOS.")
     }
 }
