@@ -27,7 +27,14 @@ public class LocationPlugin extends Plugin {
         JSObject ret = new JSObject();
         boolean isMock = false;
         try {
-            if (android.os.Build.VERSION.SDK_INT >= 18) {
+            if (android.os.Build.VERSION.SDK_INT >= 31) {
+                LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
+                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if(location!= null) {
+                    isMock = location.isMock();
+                }
+            }
+            else if (android.os.Build.VERSION.SDK_INT >= 18) {
                 LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 if(location!= null) {
@@ -40,7 +47,7 @@ public class LocationPlugin extends Plugin {
             Log.e("error","error getting location: "+e);
         }
         if(!isMock){           
-            isMock =areThereMockPermissionApps(getContext());
+            isMock = areThereMockPermissionApps(getContext());
         }
         ret.put("value", isMock);
         call.resolve(ret);
