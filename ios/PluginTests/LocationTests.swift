@@ -17,9 +17,8 @@ class LocationTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
 
         let implementation = Location()
-        let value = "Hello, World!"
-        let result = implementation.echo(value)
+        let result = implementation.isMocked()
 
-        XCTAssertEqual(value, result)
+        XCTAssertEqual(false, result)
     }
 }

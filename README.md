@@ -1,6 +1,6 @@
 # capacitor-check-ismock-location
 
-The Capacitor plugin finds out if a location is spoofed/mock/fake.
+The Capacitor plugin finds out if a location is spoofed/mock/fake on android not yet ios.
 
 Implemented the functions on https://stackoverflow.com/questions/6880232/disable-check-for-mock-location-prevent-gps-spoofing as a Capacitor plugin
 
@@ -41,10 +41,15 @@ or,
 
 <docgen-index>
 
-* [`isMocked()`](#ismocked)
-* [`isLastLocationMocked()`](#islastlocationmocked)
-* [`installedMockPermissionApps()`](#installedmockpermissionapps)
-* [Interfaces](#interfaces)
+- [capacitor-check-ismock-location](#capacitor-check-ismock-location)
+  - [Install](#install)
+  - [Example](#example)
+  - [API](#api)
+    - [isMocked()](#ismocked)
+    - [isLastLocationMocked()](#islastlocationmocked)
+    - [installedMockPermissionApps()](#installedmockpermissionapps)
+    - [Interfaces](#interfaces)
+      - [ObjectWithBooleanValue](#objectwithbooleanvalue)
 
 </docgen-index>
 

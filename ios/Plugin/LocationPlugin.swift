@@ -10,12 +10,14 @@ public class LocationPlugin: CAPPlugin {
     private let implementation = Location()
 
     @objc override func isMocked(_ call: CAPPluginCall) {
-        call.unimplemented("Not yet implemented on iOS.")
+        return false
+        // call.unimplemented("Not yet implemented on iOS.")
     }
     @objc override func isLastLocationMocked(_ call: CAPPluginCall) {
-        call.unimplemented("Not yet implemented on iOS.")
+        return false
+        // call.unimplemented("Not yet implemented on iOS.")
     }
     @objc override func installedMockPermissionApps(_ call: CAPPluginCall) {
-        call.unimplemented("Not yet implemented on iOS.")
+        call.unimplemented("Not implemented on iOS.")
     }
 }

@@ -4,5 +4,7 @@
 // Define the plugin using the CAP_PLUGIN Macro, and
 // each method the plugin supports using the CAP_PLUGIN_METHOD macro.
 CAP_PLUGIN(LocationPlugin, "Location",
-           CAP_PLUGIN_METHOD(echo, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(isMocked, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(isLastLocationMocked, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(installedMockPermissionApps, CAPPluginReturnPromise);
 )
