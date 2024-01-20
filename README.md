@@ -41,15 +41,10 @@ or,
 
 <docgen-index>
 
-- [capacitor-check-ismock-location](#capacitor-check-ismock-location)
-  - [Install](#install)
-  - [Example](#example)
-  - [API](#api)
-    - [isMocked()](#ismocked)
-    - [isLastLocationMocked()](#islastlocationmocked)
-    - [installedMockPermissionApps()](#installedmockpermissionapps)
-    - [Interfaces](#interfaces)
-      - [ObjectWithBooleanValue](#objectwithbooleanvalue)
+* [`isMocked()`](#ismocked)
+* [`isLastLocationMocked()`](#islastlocationmocked)
+* [`installedMockPermissionApps()`](#installedmockpermissionapps)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
